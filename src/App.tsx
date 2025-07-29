@@ -5,7 +5,7 @@ import SearchResults from './pages/SearchResults';
 import PropertyDetail from './pages/PropertyDetail';
 import Header from './components/Header';
 
-// Protected Route wrapper component
+
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const isAuthenticated = localStorage.getItem('token') !== null;
   
@@ -23,17 +23,15 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-/**
- * Main App component with routing configuration
- */
+
 function App() {
   return (
     <div className="App">
       <Routes>
-        {/* Login route - default route */}
+       
         <Route path="/" element={<Login />} />
         
-        {/* Protected routes */}
+      
         <Route path="/search" element={
           <ProtectedRoute>
             <SearchResults />
@@ -46,7 +44,7 @@ function App() {
           </ProtectedRoute>
         } />
         
-        {/* Catch all route - redirect to login */}
+       
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
