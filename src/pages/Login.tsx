@@ -50,11 +50,11 @@ const Login: React.FC = () => {
 
      
       if (email === DEMO_CREDENTIALS.email && password === DEMO_CREDENTIALS.password) {
-     
-        localStorage.setItem('isAuthenticated', 'true');
-        localStorage.setItem('userEmail', email);
+        // Store auth data
+        localStorage.setItem('token', 'demo-token');
+        localStorage.setItem('username', 'Admin');
         
-   
+        // Navigate to search page
         navigate('/search');
       } else {
         setErrors({ 
